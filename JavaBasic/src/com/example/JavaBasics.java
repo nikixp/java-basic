@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example;
 
-import com.example.basics4.ConstructorExamples;
+import com.example.basics4.JavaTermometer;
 import com.example.basics4.SystemTriangle;
-import java.util.Arrays;
+import java.util.Scanner;
+
 
 /**
  *
@@ -20,8 +16,10 @@ public class JavaBasics {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SystemTriangle systemTriangle = new SystemTriangle();
-        systemTriangle.makeTriangle(10);
+        //new SystemTriangle(10);
+        Scanner scanner = new Scanner(System.in);
+        JavaTermometer javaTermometer = new JavaTermometer();
+        javaTermometer.calculateFahrenheit(scanner.nextDouble());
     }
     
 }
