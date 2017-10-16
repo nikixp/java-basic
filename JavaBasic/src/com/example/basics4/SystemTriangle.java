@@ -31,8 +31,7 @@ public class SystemTriangle {
 
     private void systemOut(int... numbers) {
         for (int i : numbers) {
-            System.out.print(i);
-            System.out.print(" ");
+            System.out.printf("%d%s", i, " ");
         }
     }
 
