@@ -5,6 +5,10 @@
  */
 package com.example;
 
+import com.example.basics4.ConstructorExamples;
+import com.example.basics4.SystemTriangle;
+import java.util.Arrays;
+
 /**
  *
  * @author Student
@@ -16,7 +20,8 @@ public class JavaBasics {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        SystemTriangle systemTriangle = new SystemTriangle();
+        systemTriangle.makeTriangle(10);
     }
     
 }
