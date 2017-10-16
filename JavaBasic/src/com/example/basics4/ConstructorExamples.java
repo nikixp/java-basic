@@ -3,20 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example;
+package com.example.basics4;
 
 /**
  *
  * @author Student
  */
-public class JavaBasics {
+public class ConstructorExamples {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
+    private int[] numbers;
+
+    public ConstructorExamples() {
     }
-    
+
+    public ConstructorExamples(int... numbers) {
+        this.numbers = numbers;
+    }
+
 }
