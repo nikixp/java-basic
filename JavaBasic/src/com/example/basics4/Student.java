@@ -6,6 +6,7 @@
 package com.example.basics4;
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,10 +25,15 @@ public class Student {
     private String mail = null;
 
     private String phoneNumber = null;
+    
+    private String mmmm = null;
+  
+    private String newm = null;
 
-    public Student() {
+    public void setNewm(String newm) {
+        this.newm = newm;
     }
-
+    
     public Student(String names, String course, String specialty) {
         this.names = names;
         this.course = course;
@@ -61,6 +67,10 @@ public class Student {
         this.names = names;
     }
 
+    public String getMmmm() {
+        return mmmm;
+    }
+    
     public String getCourse() {
         if (course == null) {
             return "";
@@ -145,6 +155,10 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" + "names=" + getNames() + ", course=" + getCourse() + ", specialty=" + getSpecialty() + ", univercity=" + getUnivercity() + ", mail=" + getMail() + ", phoneNumber=" + getPhoneNumber() + '}';
+    }
+
+    public void setMmmm(String mmmm) {
+        this.mmmm = mmmm;
     }
 
 }
