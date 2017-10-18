@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.example.basics4;
 
 import java.util.Objects;
-import java.util.logging.Logger;
 
 /**
  *
@@ -14,46 +8,64 @@ import java.util.logging.Logger;
  */
 public class Student {
 
+    private static int count = 0;
+
+    private int studentId = 0;
+
     private String names = null;
 
-    private String course = null;
+    private Integer course = null;
 
-    private String specialty = null;
+    private String spec = null;
 
     private String univercity = null;
 
     private String mail = null;
 
     private String phoneNumber = null;
-    
-    private String mmmm = null;
-  
-    private String newm = null;
 
-    public void setNewm(String newm) {
-        this.newm = newm;
+    public Student() {
+        this.names = "Ivan Ivanov";
+        this.course = 1;
+        this.spec = "Engineer";
+        this.univercity = "Sofia Univercity";
+        this.mail = "ivan@gmail.com";
+        this.phoneNumber = "+35988888888";
+        addCount();
     }
-    
-    public Student(String names, String course, String specialty) {
+
+    public Student(String names, Integer course, String spec) {
         this.names = names;
         this.course = course;
-        this.specialty = specialty;
+        this.spec = spec;
+        addCount();
     }
 
-    public Student(String names, String course, String mail, String phoneNumber) {
+    public Student(String names, Integer course, String mail, String phoneNumber) {
         this.names = names;
         this.course = course;
         this.mail = mail;
         this.phoneNumber = phoneNumber;
+        addCount();
     }
 
-    public Student(String names, String course, String specialty, String univercity, String mail, String phoneNumber) {
+    public Student(String names, Integer course, String spec, String univercity, String mail, String phoneNumber) {
         this.names = names;
         this.course = course;
-        this.specialty = specialty;
+        this.spec = spec;
         this.univercity = univercity;
         this.mail = mail;
         this.phoneNumber = phoneNumber;
+        addCount();
+    }
+
+    public void addCount() {
+        studentId = count + 1;
+        count = studentId;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public String getNames() {
@@ -67,30 +79,23 @@ public class Student {
         this.names = names;
     }
 
-    public String getMmmm() {
-        return mmmm;
-    }
-    
-    public String getCourse() {
-        if (course == null) {
-            return "";
-        }
+    public Integer getCourse() {
         return course;
     }
 
-    public void setCourse(String course) {
+    public void setCourse(Integer course) {
         this.course = course;
     }
 
-    public String getSpecialty() {
-        if (specialty == null) {
+    public String getSpec() {
+        if (spec == null) {
             return "";
         }
-        return specialty;
+        return spec;
     }
 
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
+    public void setSpecialty(String spec) {
+        this.spec = spec;
     }
 
     public String getUnivercity() {
@@ -151,14 +156,15 @@ public class Student {
         }
         return Objects.equals(this.mail, other.mail);
     }
-    
-    @Override
-    public String toString() {
-        return "Student{" + "names=" + getNames() + ", course=" + getCourse() + ", specialty=" + getSpecialty() + ", univercity=" + getUnivercity() + ", mail=" + getMail() + ", phoneNumber=" + getPhoneNumber() + '}';
+
+    public void getInfoStudent() {
+        System.out.println("Student No " + studentId + " information: ");
+        System.out.println(toString());
     }
 
-    public void setMmmm(String mmmm) {
-        this.mmmm = mmmm;
+    @Override
+    public String toString() {
+        return "Names=" + getNames() + ",\ncourse=" + getCourse() + ",\nspec=" + getSpec() + ",\nunivercity=" + getUnivercity() + ",\nmail=" + getMail() + ",\nphoneNumber=" + getPhoneNumber() + "\n";
     }
 
 }

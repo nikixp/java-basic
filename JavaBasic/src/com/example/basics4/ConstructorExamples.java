@@ -16,12 +16,21 @@ public class ConstructorExamples {
     private String name = null;
 
     private int[] numbers;
+    private int number;
 
     public ConstructorExamples() {
     }
 
     public ConstructorExamples(int... numbers) {
         this.numbers = numbers;
+    }
+
+    public ConstructorExamples(int number) {
+        this.number = number;
+    }
+
+    public ConstructorExamples(int[]... numbers) {
+
     }
 
     public ConstructorExamples(String name) {
@@ -49,6 +58,14 @@ public class ConstructorExamples {
         this.numbers = numbers;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -70,6 +87,5 @@ public class ConstructorExamples {
         final ConstructorExamples other = (ConstructorExamples) obj;
         return Objects.equals(this.name, other.name);
     }
-    
-    
+
 }
