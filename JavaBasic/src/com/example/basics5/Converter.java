@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Converter {
 
     public Converter() {
+        
     }
 
     public int reverter(int input) {
