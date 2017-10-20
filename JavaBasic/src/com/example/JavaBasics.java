@@ -8,6 +8,8 @@ import com.example.basics4.Student;
 import com.example.basics4.SystemTriangle;
 import com.example.basics5.Converter;
 import com.example.basics5.StaticObject;
+import com.example.supers.ClassA;
+import com.example.supers.ClassB;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -58,28 +60,17 @@ public class JavaBasics {
         sObject2.info();*/
         //test();
         //sout();
-        Scanner input = new Scanner(System.in);
+        /*Scanner input = new Scanner(System.in);
         //System.out.print("Enter the number: ");
         Converter converter = new Converter();
         //converter.getLastNumber(input.nextInt());
 
         System.out.print("Enter the number for revert: ");
         int reverted = converter.reverter(input.nextInt());
-        System.out.println(reverted);
+        System.out.println(reverted);*/
+        ClassB b = new ClassB();
+        b.methodA();
 
-    }
-
-    private static void test() {
-        students.add(new Student("Student Name", 1, "Engineer", "Sofia Univercity", "student@asd.bg", "0881234567"));
-        students.add(new Student("Student Name2", 2, "student2@asd.bg", "+35988888888"));
-        students.add(new Student());
-    }
-
-    public static void sout() {
-        students.forEach((s) -> {
-            s.getInfoStudent();
-        });
-        System.out.println("student counts = " + students.get(0).getCount());
     }
 
 }
