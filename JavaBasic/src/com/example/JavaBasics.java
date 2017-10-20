@@ -1,20 +1,10 @@
 package com.example;
 
-import com.example.basics4.BuilderExample;
-import com.example.basics4.ConstructorExamples;
-import com.example.basics4.JavaTermometer;
-import com.example.basics4.Sorter;
-import com.example.basics4.Student;
-import com.example.basics4.SystemTriangle;
-import com.example.basics5.Converter;
-import com.example.basics5.StaticObject;
-import com.example.clones.ClonableObject;
-import com.example.supers.ClassA;
-import com.example.supers.ClassB;
+import com.example.supers.Student;
+import com.example.supers.Worker;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -22,62 +12,43 @@ import java.util.Scanner;
  */
 public class JavaBasics {
 
-    private static List<Student> students = new ArrayList<>();
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws CloneNotSupportedException {
-        // TODO code application logic here
-        //new SystemTriangle(10);
+    public static void main(String[] args) {
 
-        /*ConstructorExamples constructorExamples1 = new ConstructorExamples(0, 1, 2);
-        System.out.println(Arrays.toString(constructorExamples1.getNumbers()));
-        
-        ConstructorExamples constructorExamples2 = new ConstructorExamples(1);
-        System.out.println(constructorExamples2.getNumber());*/
- /*Scanner scanner = new Scanner(System.in);
-        JavaTermometer javaTermometer = new JavaTermometer();
-        javaTermometer.calculateFahrenheit(scanner.nextDouble());*/
+        Student student = new Student("Ivan", "Ivanov", new Integer[]{5, 4, 6, 6, 4, 5});
+        System.out.println("student evaluation is " + student.getStudentEvaluation());
 
- /*Sorter sorter = new Sorter(new int[]{8, 5, 3, 7, 8, 2, 1});
-        sorter.sort();
-        System.out.println(Arrays.toString(sorter.getNumbers()));*/
- /*Student student1 = new Student("Student Name", 1, "Engineer", "Sofia Univercity", "student@asd.bg", "0881234567");
-        student1.getInfoStudent();
+        Worker worker = new Worker(40, 11.50, "Iwan", "Ivanov");
+        System.out.println("worker salary is " + worker.getWorkerSalary());
 
-        Student student2 = new Student("Student Name2", 2, "student2@asd.bg", "+35988888888");
-        student2.getInfoStudent();
-
-        Student student3 = new Student();
-        student3.getInfoStudent();*/
-
- /*StaticObject sObject = new StaticObject();
-        sObject.info();
+        Student[] students = new Student[]{
+            new Student("Mitko", "Tarikata", new Integer[]{3, 3, 3, 4, 3, 4}),
+            new Student("Ivan", "Spqshtiq", new Integer[]{4, 2, 4, 3, 3, 4}),
+            new Student("Nikolay", "Hristov", new Integer[]{6, 6, 6, 6, 6, 6}),
+            new Student("Zdravko", "Zdraviq", new Integer[]{5, 4, 4, 3, 5, 6})
+        };
         
-        sObject.setObjectName("no static name");
+        sortStudents(students);
         
-        StaticObject sObject2 = new StaticObject();
-        sObject2.info();*/
-        //test();
-        //sout();
-        /*Scanner input = new Scanner(System.in);
-        //System.out.print("Enter the number: ");
-        Converter converter = new Converter();
-        //converter.getLastNumber(input.nextInt());
-
-        System.out.print("Enter the number for revert: ");
-        int reverted = converter.reverter(input.nextInt());
-        System.out.println(reverted);*/
-        
-        
-        ClonableObject cObject1 = new ClonableObject("1", 1);
-        ClonableObject cObject2 = (ClonableObject) cObject1.clone();
-        cObject1.s = "s2";
-        cObject1.i = 2;
-        System.out.println(cObject2.toString());
-        
+        for(Student s :students){
+            System.out.println(s.getStudentEvaluation());
+        }
 
     }
 
+    private static void sortStudents(Student[] students) {
+        for (int i = 0; i < students.length - 1; i++) {
+            int index = i;
+            for (int j = i; j < students.length; j++) {
+                if (students[j].getStudentEvaluation() < students[index].getStudentEvaluation()) {
+                    index = j;
+                }
+            }
+            Student temp = students[index];
+            students[index] = students[i];
+            students[i] = temp;
+        }
+    }
 }
