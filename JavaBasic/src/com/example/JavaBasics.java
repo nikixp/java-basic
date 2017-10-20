@@ -25,7 +25,8 @@ public class JavaBasics {
 
         Student[] students = new Student[]{
             new Student("Mitko", "Tarikata", new Integer[]{3, 3, 3, 4, 3, 4}),
-            new Student("Ivan", "Spqshtiq", new Integer[]{4, 2, 4, 3, 3, 4}),
+            new Student("Misho", "Mishkata", new Integer[]{5, 4, 4, 3, 5, 6}),
+            new Student("Ivan", "Spqshtiq", new Integer[]{4, 3, 4, 3, 3, 4}),
             new Student("Nikolay", "Hristov", new Integer[]{6, 6, 6, 6, 6, 6}),
             new Student("Zdravko", "Zdraviq", new Integer[]{5, 4, 4, 3, 5, 6})
         };
@@ -33,7 +34,7 @@ public class JavaBasics {
         sortStudents(students);
         
         for(Student s :students){
-            System.out.println(s.getStudentEvaluation());
+            System.out.println(s.toString() + " " + s.getStudentEvaluation());
         }
 
     }
