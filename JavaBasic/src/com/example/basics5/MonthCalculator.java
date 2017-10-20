@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.milena;
+package com.example.basics5;
 
 import java.util.Scanner;
 
@@ -11,18 +11,16 @@ import java.util.Scanner;
  *
  * @author Student
  */
-public class MeseciTest {
+public class MonthCalculator {
     
-    public static void main(String[] args) {
+    public MonthCalculator() {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter first month (1-12): ");
         int firstMonth = input.nextInt();
         System.out.println("Enter second month (1-12): ");
         int secondMonth = input.nextInt();
-
         sayPeriod(firstMonth, secondMonth);
         input.close();
-
     }
 
     private static void sayPeriod(int startMonth, int endMonth) {
