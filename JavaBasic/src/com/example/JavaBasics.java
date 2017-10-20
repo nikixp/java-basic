@@ -8,6 +8,7 @@ import com.example.basics4.Student;
 import com.example.basics4.SystemTriangle;
 import com.example.basics5.Converter;
 import com.example.basics5.StaticObject;
+import com.example.clones.ClonableObject;
 import com.example.supers.ClassA;
 import com.example.supers.ClassB;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class JavaBasics {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         // TODO code application logic here
         //new SystemTriangle(10);
 
@@ -68,8 +69,14 @@ public class JavaBasics {
         System.out.print("Enter the number for revert: ");
         int reverted = converter.reverter(input.nextInt());
         System.out.println(reverted);*/
-        ClassB b = new ClassB();
-        b.methodA();
+        
+        
+        ClonableObject cObject1 = new ClonableObject("1", 1);
+        ClonableObject cObject2 = (ClonableObject) cObject1.clone();
+        cObject1.s = "s2";
+        cObject1.i = 2;
+        System.out.println(cObject2.toString());
+        
 
     }
 
