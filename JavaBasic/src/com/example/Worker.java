@@ -1,4 +1,4 @@
-package com.example.supers;
+package com.example;
 
 /**
  *

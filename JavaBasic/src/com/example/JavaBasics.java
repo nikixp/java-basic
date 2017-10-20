@@ -1,7 +1,5 @@
 package com.example;
 
-import com.example.supers.Student;
-import com.example.supers.Worker;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
