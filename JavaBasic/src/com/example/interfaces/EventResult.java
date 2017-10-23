@@ -9,12 +9,14 @@ import java.util.Random;
  */
 public class EventResult {
 
+    private String name = "";
     private String eventTime = "";
     private long eventId = 0;
 
-    public EventResult() {
+    public EventResult(String name) {
         this.eventTime = new Date().toString();
         this.eventId = new Random().nextLong();
+        this.name = name;
     }
 
     void getInfo() {
@@ -23,7 +25,16 @@ public class EventResult {
 
     @Override
     public String toString() {
-        return "EventResult{" + "eventTime=" + eventTime + ", eventId=" + eventId + '}';
+        return name + "{" + "eventTime=" + eventTime + ", eventId=" + eventId + '}';
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
 }

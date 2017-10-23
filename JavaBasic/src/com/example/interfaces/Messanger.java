@@ -6,15 +6,30 @@ package com.example.interfaces;
  */
 public class Messanger {
 
-    public CallBackListener mCallback;
+    public EventResult sEventResult;
+    
+    private CallBackListener mCallback;
+    private NotificationListener mNotify;
 
-    public Messanger(CallBackListener callback) {
+    public Messanger(EventResult eventResult, CallBackListener callback) {
         this.mCallback = callback;
+        this.sEventResult = eventResult;
+    }
+    
+    public Messanger(EventResult eventResult, NotificationListener notify) {
+        this.mNotify = notify;
+        this.sEventResult = eventResult;
     }
 
     public void doCallback() {
         if (mCallback != null) {
-            mCallback.callback(new EventResult());
+            mCallback.callback(sEventResult);
+        }
+    }
+    
+    public void doNotify(){
+        if (mNotify != null) {
+            mNotify.notify(sEventResult);
         }
     }
 
