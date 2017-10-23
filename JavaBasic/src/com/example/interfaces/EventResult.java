@@ -19,7 +19,7 @@ public class EventResult {
         this.name = name;
     }
 
-    void getInfo() {
+    public void getInfo() {
         System.out.println(this.toString());
     }
 

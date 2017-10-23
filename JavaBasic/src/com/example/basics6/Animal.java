@@ -6,7 +6,7 @@ package com.example.basics6;
  */
 public abstract class Animal {
 
-    private Integer age;
+    private int age;
     
     private String name;
     
@@ -45,6 +45,10 @@ public abstract class Animal {
         this.gender = gender;
     }
 
-    public abstract void animalInfo();
+    public void animalInfo(){
+        System.out.println("name: " + this.name + " gender: " + this.gender + " age: " + this.age + " sound: " + this.getSound());
+    };
+
+    public abstract String getSound();
     
 }
