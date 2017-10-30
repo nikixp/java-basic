@@ -14,7 +14,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.TypedQuery;
-
+import org.eclipse.persistence.sessions.Session;
 
 /**
  *
@@ -31,12 +31,11 @@ public class DerbyConnectionTester {
         List<Customer> resultList = EntityManagerHelper.getEntityManager()
                 .createNamedQuery("Customer.findByCity", Customer.class)
                 .setParameter("city", "Miami").getResultList();
-                //.createNamedQuery("Customer.findByName", Customer.class)
-                //.setParameter("name", input.nextLine()).getResultList();
+        //.createNamedQuery("Customer.findByName", Customer.class)
+        //.setParameter("name", input.nextLine()).getResultList();
         resultList.forEach(customer -> {
             System.out.println("customer found: " + customer.toString());;
         });
-        
 
     }
 

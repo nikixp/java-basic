@@ -15,35 +15,35 @@ import javax.persistence.Persistence;
  */
 public class EntityManagerHelper {
     
-    private static final EntityManagerFactory emf;
-    private static final ThreadLocal<EntityManager> threadLocal;
+    private static final EntityManagerFactory EMF;
+    private static final ThreadLocal<EntityManager> THREAD_LOCAL;
 
     static {
-        emf = Persistence.createEntityManagerFactory("JavaBasicPU");
-        threadLocal = new ThreadLocal<EntityManager>();
+        EMF = Persistence.createEntityManagerFactory("JavaBasicPU");
+        THREAD_LOCAL = new ThreadLocal<>();
     }
 
     public static EntityManager getEntityManager() {
-        EntityManager em = threadLocal.get();
+        EntityManager em = THREAD_LOCAL.get();
 
         if (em == null) {
-            em = emf.createEntityManager();
+            em = EMF.createEntityManager();
             // set your flush mode here
-            threadLocal.set(em);
+            THREAD_LOCAL.set(em);
         }
         return em;
     }
 
     public static void closeEntityManager() {
-        EntityManager em = threadLocal.get();
+        EntityManager em = THREAD_LOCAL.get();
         if (em != null) {
             em.close();
-            threadLocal.set(null);
+            THREAD_LOCAL.set(null);
         }
     }
 
     public static void closeEntityManagerFactory() {
-        emf.close();
+        EMF.close();
     }
 
     public static void beginTransaction() {

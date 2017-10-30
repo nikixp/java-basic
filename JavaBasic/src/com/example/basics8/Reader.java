@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,30 +23,33 @@ public class Reader {
 
     public static void main(String[] args) {
 
-        String fileName = "‪‪C:\\Users\\Student\\Desktop\\datafile.txt";
+        Scanner input = new Scanner(System.in);
+        System.out.println("enter file location: ");
+        String fileName = input.nextLine();
+
+        File file = new File(fileName);
+        if (!file.exists()) {
+            System.out.println("filename " + fileName + " does not exist");
+            return;
+        }
+
         try {
-            readFile(new File(fileName));
-        } catch (Exception ex) {
-            System.err.println("Logger:");
-            Logger.getLogger(Reader.class.getName()).log(Level.WARNING, "nema fail s takova ime bee", ex);
-
-            System.err.println("Stack trace:");
-            ex.printStackTrace();
-
-            System.err.println("IOException:");
+            readFile(file);
+        } catch (IOException ex) {
             System.err.println(ex);
         }
 
     }
 
     private static void readFile(File file) throws FileNotFoundException, IOException {
-        FileInputStream fileInputStream = new FileInputStream(file);
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-        String tmp = null;
-        while ((tmp = bufferedReader.readLine()) != null) {
-            System.out.println("tmp: " + tmp);
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream))) {
+                String tmp;
+                while ((tmp = bufferedReader.readLine()) != null) {
+                    System.out.println(tmp);
+                }
+            }
         }
-
     }
 
 }
