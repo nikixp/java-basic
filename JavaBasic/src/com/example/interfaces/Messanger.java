@@ -7,6 +7,7 @@ package com.example.interfaces;
 public class Messanger {
 
     public EventResult sEventResult;
+    public String message;
     
     private CallBackListener mCallback;
     private NotificationListener mNotify;
@@ -31,6 +32,14 @@ public class Messanger {
         if (mNotify != null) {
             mNotify.notify(sEventResult);
         }
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
 }
